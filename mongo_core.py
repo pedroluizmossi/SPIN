@@ -1,8 +1,9 @@
+import os
 import pymongo
 from config_core import get_config, update_config
 from bson import ObjectId
 
-conn = pymongo.MongoClient("mongodb+srv://spin:***REMOVED***@cluster1.pvl7w4l.mongodb.net/?retryWrites=true&w=majority")
+conn = pymongo.MongoClient(os.environ["MONGODB_URI"])
 
 DB = conn["main"]
 ENDPOINTS_COLLECTION = DB["endpoints"]
